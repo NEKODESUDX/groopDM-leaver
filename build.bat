@@ -1,1 +1,1 @@
-pip install discord.py requests python-dotenv colorama
+
