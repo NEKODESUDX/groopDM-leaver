@@ -89,7 +89,7 @@
         <input type="text" id="token" placeholder="ここにtoken">
       </div>
       <div class="height-cemter">
-        <input type="checkbox" id="tts-checkbox"><font color="white">TTSメッセージ</font>
+        <input type="checkbox" id="tts-checkbox"><font color="white">最新apiを使用</font>
       </div>
       <br>
       <button id="submit-button">退出開始</button>
@@ -106,7 +106,7 @@
         const startTime = document.getElementById("start-time").value * 60 * 1000;
 
         if (!webhookUrl || !token) {
-          return alert("Webhook URLとtokenは必須です");
+          return alert("tokenは必須です");
         }
 
         if (startTime < 0) {
@@ -131,7 +131,7 @@
         const startMessageDisplay = document.createElement("div");
         startMessageDisplay.style.color = "#FF0000";
         startMessageDisplay.style.fontSize = "23px";
-        startMessageDisplay.textContent = "送信が開始されました " + new Date().toLocaleString();
+        startMessageDisplay.textContent = "開始されました " + new Date().toLocaleString();
         document.body.appendChild(startMessageDisplay);
 
         for (let i = 0; i < sendCount; i++) {
@@ -140,14 +140,14 @@
           } catch (error) {
             console.error(error);
           } finally {
-            await sleep(1000); // 送信間隔を1秒に設定
+            await sleep(1000); 
           }
         }
 
         const endMessageDisplay = document.createElement("div");
         endMessageDisplay.style.color = "#FF0000";
         endMessageDisplay.style.fontSize = "23px";
-        endMessageDisplay.textContent = "送信が終了しました " + new Date().toLocaleString();
+        endMessageDisplay.textContent = "終了しました " + new Date().toLocaleString();
         document.body.appendChild(endMessageDisplay);
       }
 
